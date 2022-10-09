@@ -22,7 +22,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <link rel="icon" href="logo.png" />
       </Head>
       <HeaderComponent />
+      <div className="container mx-auto px-4">
       {children}
+      </div>
       <FooterComponent />
     </div>
   )

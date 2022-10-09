@@ -3,6 +3,7 @@ import logo from '../assets/logo.png'
 import cart from '../assets/noun-cart.svg'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 const HeaderComponent: React.FC<any> = () => {
     return (
@@ -14,10 +15,14 @@ const HeaderComponent: React.FC<any> = () => {
                         <li className='cursor-pointer'>SHOP</li>
                         <li className='cursor-pointer'>BLOG</li>
                         <li className='cursor-pointer'>SEARCH</li>
+                        <Link href="/cart" >
+                            
                         <li className='cursor-pointer'>
                             <Image src={cart} alt="cart-icon" />
                             <span className='ml-1'>CART</span>
                         </li>
+                        </Link>
+
                     </ul>
                 </nav>
             </header>
