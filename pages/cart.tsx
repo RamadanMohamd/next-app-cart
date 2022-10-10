@@ -1,88 +1,42 @@
 import type { NextPage } from 'next'
-import { useState } from 'react'
-import CartItemComponent, { Product as cartItem } from '../src/components/cart-components/cart-item-component'
+import { useEffect, useState } from 'react'
+import CartItemComponent from '../src/components/cart-components/cart-item-component'
 import MainLayout from '../src/layouts/main'
-import pr1Image from "../src/assets/footer-imgs/Bitmap-1.png"
-import pr2Image from "../src/assets/footer-imgs/Bitmap-2.png"
-
 import Button from '../src/components/shared/button-component'
 import CartSubtotalComponent from '../src/components/cart-components/cart-subtotal.component'
 
-import { useAppDispatch } from '../src/reduxSetup/config'
+import { useAppDispatch, useAppSelector } from '../src/reduxSetup/config'
 import { changeHeaderTitle } from '../src/reduxSetup/headerSlice'
+import { Product } from '../types/product'
+import { changeItemCount, removeItem } from '../src/reduxSetup/storeSlice'
+import { StoreItemsInterFace } from '../types/reduxStore'
 
 const Cart: NextPage = () => {
 
+  const { items, count, total } = useAppSelector(state => state.store)
+
   const dispatch = useAppDispatch()
-  dispatch(changeHeaderTitle({ title: "CART" }))
 
-  const [cart, setCart] = useState<cartItem[] | any>([
-    {
-      id: 123,
-      name: "KAYAK WITH PADDLES",
-      categories: ["home product"],
-      tags: ["kiyaki"],
-      images: [pr1Image],
-      inSale: true,
-      price: 132,
-      disscount: 0,
-      sku: "blabla",
-      quantity: 1,
-      subTotal() {
-        return this.price * this.quantity
-      }
-    },
-    {
-      id: 223,
-      name: "Shampoo",
-      categories: ["home product"],
-      tags: ["kiyaki"],
-      images: [pr2Image],
-      inSale: true,
-      price: 156,
-      disscount: 0,
-      sku: "blabla",
-      quantity: 1,
-      subTotal() {
-        return this.price * this.quantity
-      }
-    }
-  ])
-
-  const changeQuantity = (id: (string | number), type: ("add" | "sub")) => {
-    let product = cart.find((item: cartItem) => item?.id === id)
-    if (type === "add") {
-      setCart(cart.map((item: cartItem, index: number) => {
-        if (item?.id === id) return { ...item, quantity: item?.quantity + 1 }
-        return item
-      }))
-    }
-    else if (type === "sub") {
-      if (product?.quantity === 1) return
-      setCart(cart.map((item: cartItem, index: number) => {
-        if (item?.id === id) return { ...item, quantity: item?.quantity - 1 }
-        return item
-      }))
+  useEffect(() => {
+    dispatch(changeHeaderTitle({ title: "CART" }))
+  }, [])
+  const handlechangeQuantity = (item: StoreItemsInterFace,  type: ("incerement" | "decrement")) => {
+    const itemObject = {product: item.product, count: 1, operation: type}
+    if (item?.count === 1 && type === 'decrement') {
+      handleRemoveItem(item.product)
+    } else {
+      dispatch(changeItemCount(itemObject))
     }
   }
 
-  const removeItem = (id: (string | number)) => {
-    setCart((c: Array<cartItem>) => c.filter((product: cartItem) => product.id !== id))
+  const handleRemoveItem = (product: Product) => {
+    dispatch(removeItem({product: product}))
   }
 
-  const total = (): number => {
-    if (!cart.length) {
-      return 0
-    }
-    let t = cart.map((item: cartItem) => item?.subTotal())
-    let sum = t?.reduce((sum: number, currentValue: number) => sum + currentValue)
-    return sum
-  }
-
-  const CartItem: (React.ReactNode | any) = cart?.map((item: cartItem, index: number) => <CartItemComponent key={index}
+  const CartItem: (React.ReactNode | any) = items?.map((item: StoreItemsInterFace, index: number) => <CartItemComponent key={index}
     product={item}
-    changeQuantity={changeQuantity}
-    removeItem={removeItem}
+    changeQuantity={handlechangeQuantity}
+    removeItem={handleRemoveItem}
   />)
 
   return (
@@ -106,7 +60,6 @@ const Cart: NextPage = () => {
 
         <div className='grid grid-cols-12 w-ful'>
           <div className='col-span-1 '>
-
           </div>
           <div className="col-span-10  self-start flex  gap-10 my-10">
             <Button className='px-12' >
@@ -122,7 +75,7 @@ const Cart: NextPage = () => {
           <h3 className="uppercase font-bold text-2xl font-opensans tracking-widest" style={{ letterSpacing: 15 }}>
             Cart Total
           </h3>
-          <CartSubtotalComponent subTotal={total()} />
+          <CartSubtotalComponent subTotal={total} />
         </div>
       </div>
 
