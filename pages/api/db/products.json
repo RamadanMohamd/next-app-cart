@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "First Product",
-      "sku": "123",
+      "sku": 7,
       "categories": [],
       "tags": ["Boards", "Canoenig"],
       "images": ["1.png"],
@@ -11,8 +11,8 @@
       "disscount": 0
     },
     {
-      "name": "First Product",
-      "sku": "123",
+      "name": "Second Product",
+      "sku": 6,
       "categories": [],
       "tags": ["Scubadiving", "Surfing"],
       "images": ["2.png"],
@@ -21,8 +21,8 @@
       "disscount": 0
     },
     {
-      "name": "First Product",
-      "sku": "123",
+      "name": "Third Product",
+      "sku": 5,
       "categories": [],
       "tags": ["Equipment", "Paddling"],
       "images": ["3.png"],
@@ -31,8 +31,8 @@
       "disscount": 0
     },
     {
-      "name": "First Product",
-      "sku": "123",
+      "name": "Fourth Product",
+      "sku": 1,
       "categories": [],
       "tags": ["Boards", "Canoenig"],
       "images": ["1.png"],
@@ -41,8 +41,8 @@
       "disscount": 0
     },
     {
-      "name": "First Product",
-      "sku": "123",
+      "name": "Fifth Product",
+      "sku": 2,
       "categories": [],
       "tags": ["Scubadiving", "Surfing"],
       "images": ["2.png"],
@@ -51,8 +51,8 @@
       "disscount": 0
     },
     {
-      "name": "First Product",
-      "sku": "123",
+      "name": "Sixth Product",
+      "sku": 3,
       "categories": [],
       "tags": ["Boards", "Canoenig", "Equipment"],
       "images": ["3.png"],
@@ -61,8 +61,8 @@
       "disscount": 0
     },
     {
-      "name": "First Product",
-      "sku": "123",
+      "name": "Seventh Product",
+      "sku": 4,
       "categories": [],
       "tags": [
         "Boards",
