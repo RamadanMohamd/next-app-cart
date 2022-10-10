@@ -8,7 +8,14 @@ import pr2Image from "../src/assets/footer-imgs/Bitmap-2.png"
 import Button from '../src/components/shared/button-component'
 import CartSubtotalComponent from '../src/components/cart-components/cart-subtotal.component'
 
+import { useAppDispatch } from '../src/reduxSetup/config'
+import { changeHeaderTitle } from '../src/reduxSetup/headerSlice'
+
 const Cart: NextPage = () => {
+  
+  const dispatch = useAppDispatch()
+  dispatch(changeHeaderTitle({ title: "CART" }))
+
   const [cart, setCart] = useState<cartItem[] | any>([
     {
       id: 123,

@@ -4,23 +4,27 @@ import cart from '../assets/noun-cart.svg'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { useAppSelector } from '../../src/reduxSetup/config'
+
 
 const HeaderComponent: React.FC<any> = () => {
+    const { title } = useAppSelector(state => state.header)
     return (
         <div className='font-opensans'>
             <header className='h-24 flex flex-col w-10/12 mx-auto '>
                 <nav className='flex justify-between items-center h-full'>
                     <Image layout='fixed' height={31} width={180} src={logo} alt="bloowatch-logo" />
                     <ul className='flex w-4/12 justify-between'>
-                        <li className='cursor-pointer'>SHOP</li>
+                        <Link href="/products" >
+                            <li className='cursor-pointer'>SHOP</li>
+                        </Link>
                         <li className='cursor-pointer'>BLOG</li>
                         <li className='cursor-pointer'>SEARCH</li>
                         <Link href="/cart" >
-                            
-                        <li className='cursor-pointer'>
-                            <Image src={cart} alt="cart-icon" />
-                            <span className='ml-1'>CART</span>
-                        </li>
+                            <li className='cursor-pointer'>
+                                <Image src={cart} alt="cart-icon" />
+                                <span className='ml-1'>CART</span>
+                            </li>
                         </Link>
 
                     </ul>
@@ -28,7 +32,7 @@ const HeaderComponent: React.FC<any> = () => {
             </header>
             <div className='h-40 flex items-center bg-primary'>
                 <div className='w-9/12 mx-auto text-white'>
-                    <h1> Page name </h1>
+                    <h1 className='capitalize text-4xl'> {title} </h1>
                 </div>
             </div>
         </div>
