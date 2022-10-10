@@ -6,7 +6,7 @@ type Props = {
   color?: string;
   children?: React.ReactNode;
   height?: string;
-  onClick?: () => void;
+  onClick?: () => {};
   radius?: string
   width?: string,
   className?: string,
