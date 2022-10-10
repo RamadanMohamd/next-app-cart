@@ -1,0 +1,14 @@
+{
+    "products": [
+        {
+            "name": "First Product",
+            "sku": "123",
+            "categories": [],
+            "tags": [],
+            "images": [],
+            "inSale": false,
+            "price": 400, 
+            "disscount": 0
+        }
+    ]
+}

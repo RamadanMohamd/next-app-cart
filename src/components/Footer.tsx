@@ -33,7 +33,7 @@ const FooterComponent: React.FC<any> = () => {
             </div>
             <div className='col-span-3'>
             <h5 className={titleStyle}>INSTAGRAM</h5>
-            <div>
+            <div className='flex flex-wrap gap-2 '>
                 <Image height="64" width="64" src={instaImg1} alt="insta image"/>
                 <Image height="64" width="64" src={instaImg2} alt="insta image"/>
                 <Image height="64" width="64" src={instaImg3} alt="insta image"/>
