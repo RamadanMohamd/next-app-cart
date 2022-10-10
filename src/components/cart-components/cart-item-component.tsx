@@ -1,21 +1,8 @@
 import Image, { StaticImageData } from 'next/image'
 import React from 'react'
+import { Product } from '../../../types/product'
 import closeIcon from "../../assets/close.svg"
 import right from "../../assets/right.svg"
-
-export type Product = {
-  id: string | number
-  name: string
-  sku: string
-  categories: Array<string>
-  tags: Array<string>
-  images: Array<string | StaticImageData>
-  inSale: boolean
-  price: number
-  disscount: number
-  quantity: number
-  subTotal: () => number
-}
 
 type changeQuantityFC = (id: (string | number), type: ("add" | "sub")) => void
 
@@ -40,11 +27,11 @@ const CartItemComponent: React.FC<any> = (props) => {
             {product?.quantity}
           </span>
           <div className="flex flex-col justify-center items-center">
-            <span className="cursor-pointer -rotate-90 justify-center items-center flex" onClick={() => changeQuantity(product?.id, "add")}>
+            <span className="cursor-pointer -rotate-90 justify-center items-center flex" onClick={() => changeQuantity(product, "increment")}>
               <Image src={right} alt='' />
             </span>
             <p className='bg-black my-1' style={{ height: 3, width: 24 }}></p>
-            <span className="cursor-pointer rotate-90 justify-center items-center flex" onClick={() => changeQuantity(product?.id, "sub")}>
+            <span className="cursor-pointer rotate-90 justify-center items-center flex" onClick={() => changeQuantity(product, "decrement")}>
               <Image src={right} alt='' />
             </span>
 
