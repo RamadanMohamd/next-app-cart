@@ -15,7 +15,7 @@
       "sku": 6,
       "categories": [],
       "tags": ["Scubadiving", "Surfing"],
-      "images": ["2.png"],
+      "images": ["4.png"],
       "inSale": false,
       "price": 600,
       "disscount": 0
@@ -45,7 +45,7 @@
       "sku": 2,
       "categories": [],
       "tags": ["Scubadiving", "Surfing"],
-      "images": ["2.png"],
+      "images": ["4.png"],
       "inSale": false,
       "price": 300,
       "disscount": 0
@@ -58,19 +58,6 @@
       "images": ["3.png"],
       "inSale": false,
       "price": 200,
-      "disscount": 0
-    },
-    {
-      "name": "Seventh Product",
-      "sku": 4,
-      "categories": [],
-      "tags": [
-        "Boards",
-        "Canoenig"
-      ],
-      "images": [],
-      "inSale": false,
-      "price": 400,
       "disscount": 0
     }
   ]

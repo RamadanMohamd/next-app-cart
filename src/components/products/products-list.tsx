@@ -15,7 +15,7 @@ const ProductsList: React.FC<any> = () => {
     }, [])
 
     return (
-        <div className='col-span-6 grid grid-cols-9 gap-x-8 gap-y-20 my-10'>
+        <div className='col-span-9 grid grid-cols-9 gap-x-8 gap-y-20 my-10'>
             {
                 items.map((product) => {
                     return <ProductComponent key={product.sku} {...product} />

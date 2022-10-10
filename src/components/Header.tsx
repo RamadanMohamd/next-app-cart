@@ -10,11 +10,11 @@ import { useAppSelector } from '../../src/reduxSetup/config'
 const HeaderComponent: React.FC<any> = () => {
     const { title } = useAppSelector(state => state.header)
     return (
-        <div className='font-opensans'>
-            <header className='h-24 flex flex-col w-10/12 mx-auto '>
-                <nav className='flex justify-between items-center h-full'>
-                    <Image layout='fixed' height={31} width={180} src={logo} alt="bloowatch-logo" />
-                    <ul className='flex w-4/12 justify-between'>
+        <>
+            <header className='h-28 w-full bg-white sticky top-0 z-50 font-opensans'>
+                <nav className='flex justify-between items-center h-full flex w-11/12 mx-auto'>
+                    <Image layout='fixed' height={35} width={200} style={{paddingLeft: "40px"}} src={logo} alt="bloowatch-logo" />
+                    <ul className='flex w-4/12 justify-between font-semibold'>
                         <Link href="/products" >
                             <li className='cursor-pointer'>SHOP</li>
                         </Link>
@@ -30,12 +30,12 @@ const HeaderComponent: React.FC<any> = () => {
                     </ul>
                 </nav>
             </header>
-            <div className='h-40 flex items-center bg-primary'>
+            <div className='h-52 flex items-center bg-primary font-opensans'>
                 <div className='w-9/12 mx-auto text-white'>
                     <h1 className='capitalize text-4xl'> {title} </h1>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
