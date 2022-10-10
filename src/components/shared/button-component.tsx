@@ -15,7 +15,7 @@ type Props = {
 function Button({ children,
   className, ...props }: Props) {
   return (
-    <button className={`bg-buttonBG uppercase font-normal text-white h-12 px-12 text-xs ${className}`} {...props}>
+    <button className={`bg-buttonBG uppercase font-normal text-white h-12 text-xs ${className}`} {...props}>
       {children}
     </button>
   )

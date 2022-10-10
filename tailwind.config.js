@@ -4,7 +4,8 @@ module.exports = {
     extend: {
       colors: {
         primary: "#0C0EB7",
-        buttonBG: "#0C0EB6"
+        buttonBG: "#0C0EB6",
+        productBG: "#FAFAFA"
       },
       fontFamily: {
         opensans: ["Open Sans", "sans-serif"],

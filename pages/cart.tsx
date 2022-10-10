@@ -12,7 +12,7 @@ import { useAppDispatch } from '../src/reduxSetup/config'
 import { changeHeaderTitle } from '../src/reduxSetup/headerSlice'
 
 const Cart: NextPage = () => {
-  
+
   const dispatch = useAppDispatch()
   dispatch(changeHeaderTitle({ title: "CART" }))
 
@@ -109,10 +109,10 @@ const Cart: NextPage = () => {
 
           </div>
           <div className="col-span-10  self-start flex  gap-10 my-10">
-            <Button  >
+            <Button className='px-12' >
               Apply coupon
             </Button>
-            <Button  >
+            <Button className='px-12' >
               Update cart
             </Button>
           </div>

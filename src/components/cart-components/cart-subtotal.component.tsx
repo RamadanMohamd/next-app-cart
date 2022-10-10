@@ -27,7 +27,7 @@ function CartSubtotalComponent({ subTotal, tax = 0.15 }: props) {
       </div>
 
       <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700 w-full" />
-      <Button className='my-8'>proceed to checkout</Button>
+      <Button className='my-8 px-12'>proceed to checkout</Button>
     </div>
   )
 }
