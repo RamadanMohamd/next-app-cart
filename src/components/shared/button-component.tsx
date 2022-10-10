@@ -9,13 +9,14 @@ type Props = {
   onClick?: () => void;
   radius?: string
   width?: string,
-  className?: string
+  className?: string,
+  hasSpace?: boolean
 }
 
 function Button({ children,
   className, ...props }: Props) {
   return (
-    <button className={`bg-buttonBG uppercase font-normal text-white h-12 text-xs ${className}`} {...props}>
+    <button className={`bg-buttonBG uppercase font-normal text-white h-12 text-xs ${className}`} {...props} style={props.hasSpace? { letterSpacing: 4} : {}}>
       {children}
     </button>
   )

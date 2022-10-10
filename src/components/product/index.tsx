@@ -7,6 +7,7 @@ import image3 from '../../assets/products/3.png'
 import Button from '../../components/shared/button-component'
 import { Product } from '../../../types/product'
 const ProductComponent: React.FC<Product> = ({ price, inSale, tags, name, images }: Product) => {
+    const image = images[0]?.includes('1') ? image1 : images[0]?.includes('2') ? image2 : image3
     return (
         <div className='col-span-3 h-[380px] w-full flex flex-col justify-between items-center group'>
             <div className='h-64 relative flex items-center justify-center w-full bg-productBG'>
@@ -14,11 +15,11 @@ const ProductComponent: React.FC<Product> = ({ price, inSale, tags, name, images
                     SALE
                 </div>}
                 <div className='h-[220px] w-[110px] mb-28'>
-                    <Image src={images[0]?.includes('1') ? image1 : images[0]?.includes('2') ? image2 : image3} alt="product-image" />
+                    <Image src={image} alt="product-image" />
                 </div>
 
                 <div className='group-hover:block hidden w-full absolute bottom-0 left-0 right-0'>
-                    <Button className='w-full '> ADD TO CART</Button>
+                    <Button className='w-full' hasSpace> ADD TO CART</Button>
                 </div>
             </div>
             <div className='p-2 flex flex-col items-center'>
