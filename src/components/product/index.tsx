@@ -15,19 +15,19 @@ const ProductComponent: React.FC<Product> = (props: Product) => {
 
     const { store } = useAppSelector(state => state)
 
-    const [onStore, setOnStore] = useState(store?.items?.find(item => item.product.sku === sku)? true : false)
+    const [onStore, setOnStore] = useState(store?.items?.find(item => item.product.sku === sku) ? true : false)
 
     const router = useRouter()
     const dispatch = useAppDispatch()
     const image = images[0]?.includes('1') ? image1 : images[0]?.includes('2') ? image2 : image3;
 
-    const handleItemToCart = (event: any,product: Product) => {
+    const handleItemToCart = (event: any, product: Product) => {
         event.stopPropagation()
         event.preventDefault()
         if (onStore) {
-            dispatch(removeItem({product: product}))
+            dispatch(removeItem({ product: product }))
         } else {
-            dispatch(addItem({product: product, count: 1, operation: "increment"}))
+            dispatch(addItem({ product: product, count: 1, operation: "increment" }))
         }
     }
 
@@ -50,7 +50,7 @@ const ProductComponent: React.FC<Product> = (props: Product) => {
                 </div>
 
                 <div className='group-hover:block hidden w-full absolute bottom-0 left-0 right-0 z-index: 100'>
-                    <Button className='w-full' onClick={(e: any) => handleItemToCart(e, {...props})}>{onStore ? "REMOVE FROM CART" : "ADD TO CART"}</Button>
+                    <Button className='w-full' onClick={(e: any) => handleItemToCart(e, { ...props })}>{onStore ? "REMOVE FROM CART" : "ADD TO CART"}</Button>
                 </div>
             </div>
             <div className='p-2 flex flex-col items-center'>

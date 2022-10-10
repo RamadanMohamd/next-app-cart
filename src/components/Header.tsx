@@ -5,15 +5,16 @@ import cart from '../assets/noun-cart.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useAppSelector } from '../../src/reduxSetup/config'
-
+import { useRouter } from 'next/router'
 
 const HeaderComponent: React.FC<any> = () => {
     const { title } = useAppSelector(state => state.header)
+    const router = useRouter()
     return (
         <div className='font-opensans'>
             <header className='h-24 flex flex-col w-10/12 mx-auto '>
                 <nav className='flex justify-between items-center h-full'>
-                    <Image layout='fixed' height={31} width={180} src={logo} alt="bloowatch-logo" />
+                    <Image className='cursor-pointer' onClick={()=> router.push('/')} layout='fixed' height={31} width={180} src={logo} alt="bloowatch-logo" />
                     <ul className='flex w-4/12 justify-between'>
                         <Link href="/products" >
                             <li className='cursor-pointer'>SHOP</li>

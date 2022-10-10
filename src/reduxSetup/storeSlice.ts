@@ -29,6 +29,7 @@ export const storeSlice = createSlice({
                 }),
                 total: state.total + modefier(action.payload.product.price)
             }
+            console.log(modifiedState)
             return modifiedState
 
         },
